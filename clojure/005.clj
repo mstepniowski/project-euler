@@ -1,4 +1,4 @@
-;; Solution to Project Euler problem 2
+;; Solution to Project Euler problem 5
 ;; http://projecteuler.net/index.php?section=problems&id=5
 ;;
 ;; 2520 is the smallest number that can be divided by each
@@ -64,3 +64,9 @@
  (let [all-factors (for [x (range 2 20)] (counts (factors x)))
        factor-counts (reduce merge-max all-factors)]
    (reduce * (map #(apply power %) (seq factor-counts)))))
+
+
+;; A lot more elegant (and faster) solution uses least common denominator directly:
+;; (defn gcd [a b] (if (zero? b) a (recur b (mod a b))))
+;; (defn lcm [a b] (/ (* a b) (gcd a b)))
+;; (reduce #(lcm %1 %2) (range 1 21))
