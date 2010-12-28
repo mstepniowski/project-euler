@@ -54,5 +54,3 @@
 	run-values (map #(run-value *grid* n %) (runs n))
 	run-products (map #(apply * %) run-values)]
     (reduce max run-products)))
-
-(println (euler-11))
