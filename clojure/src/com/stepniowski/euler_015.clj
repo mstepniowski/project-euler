@@ -5,7 +5,7 @@
 ;; (without backtracking) to the bottom right corner.
 ;;
 ;; How many routes are there through a 20x20 grid?
-(ns com.stepniowski.project-euler)
+(ns com.stepniowski.euler-015)
 
 (defn factorial [n]
   (loop [n n acc 1]
@@ -19,5 +19,5 @@
   (/ (factorial (+ (dec n) k))
      (* (factorial k) (factorial (dec n)))))
 
-(defn euler-15 []
+(defn solution []
   (combination-with-repetition (inc 20) 20))

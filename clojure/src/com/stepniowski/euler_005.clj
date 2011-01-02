@@ -6,6 +6,8 @@
 ;;
 ;; What is the smallest positive number that is evenly divisible
 ;; by all of the numbers from 1 to 20?
+(ns com.stepniowski.euler-005)
+
 (defn divisible-by? [n candidate]
   (zero? (rem n candidate)))
 
@@ -22,7 +24,7 @@
 
 (defn counts
   "Given a sorted sequence, returns a map which keys are sequence values
-   and values are their counts in the sequence." 
+   and values are their counts in the sequence."
   [sequence]
   (loop [result (hash-map)
 	 to-be-processed sequence
@@ -60,11 +62,10 @@
 (defn power [x y]
   (. (. java.math.BigInteger (valueOf x)) (pow y)))
 
-(println
+(defn solution []
  (let [all-factors (for [x (range 2 20)] (counts (factors x)))
        factor-counts (reduce merge-max all-factors)]
    (reduce * (map #(apply power %) (seq factor-counts)))))
-
 
 ;; A lot more elegant (and faster) solution uses least common denominator directly:
 ;; (defn gcd [a b] (if (zero? b) a (recur b (mod a b))))

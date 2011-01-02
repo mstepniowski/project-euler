@@ -1,6 +1,6 @@
 ;; Solution to Project Euler problem 8
 ;; Find the greatest product of five consecutive digits in the 1000-digit number.
-(ns com.stepniowski.project-euler)
+(ns com.stepniowski.euler-008)
 
 (def *number* (concat "73167176531330624919225119674426574742355349194934"
 		      "96983520312774506326239578318016984801869478851843"
@@ -29,5 +29,5 @@
 (defn multiply-digits [s]
   (reduce * (map #(Integer/parseInt (str %)) s)))
 
-(println
- (reduce max (map multiply-digits (by-fives *number*))))
+(defn solution []
+  (reduce max (map multiply-digits (by-fives *number*))))

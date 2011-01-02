@@ -3,7 +3,7 @@
 ;;
 ;; What is the greatest product of four adjacent numbers in any direction
 ;; (up, down, left, right, or diagonally) in the 20x20 grid?
-(ns com.stepniowski.project-euler)
+(ns com.stepniowski.euler-011)
 
 (def *grid* [[ 8  2 22 97 38 15  0 40  0 75  4  5  7 78 52 12 50 77 91  8]
 	     [49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48  4 56 62  0]
@@ -49,7 +49,7 @@
 	    0))]
     (map get-value run)))
 
-(defn euler-11 []
+(defn solution []
   (let [n (count *grid*)
 	run-values (map #(run-value *grid* n %) (runs n))
 	run-products (map #(apply * %) run-values)]

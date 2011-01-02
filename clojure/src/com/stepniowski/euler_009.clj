@@ -7,7 +7,7 @@
 ;;
 ;; There exists exactly one Pythagorean triplet for which a + b + c = 1000.
 ;; Find the product abc.
-(ns com.stepniowski.project-euler)
+(ns com.stepniowski.euler-009)
 
 (defn triplets
   "Returns triplets [a b c], where a, b and c are integers and a + b + c = sum."
@@ -22,6 +22,6 @@
 	   (= (+ (* a a) (* b b)) (* c c)))
     triplet))
 
-(defn euler-9 []
+(defn solution []
   (let [found-triplet (some pythagorean-triplet? (triplets 1000))]
     (apply * found-triplet)))

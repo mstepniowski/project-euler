@@ -16,7 +16,7 @@
 ;; Which starting number, under one million, produces the longest chain?
 ;;
 ;; NOTE: Once the chain starts the terms are allowed to go above one million.
-(ns com.stepniowski.project-euler)
+(ns com.stepniowski.euler-014)
 
 (defn max-at [s]
   "Returns [xi x], where xi is the index number of the max element
@@ -48,5 +48,5 @@
 	 (even? n) (inc (memoized-chain-length (/ n 2)))
 	 true (inc (memoized-chain-length (inc (* 3 n))))))))
 
-(defn euler-14 []
+(defn solution []
   (first (max-at (map chain-length (range 1 1000000)))))

@@ -4,9 +4,9 @@
 ;; The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
 ;;
 ;; Find the sum of all the primes below two million.
-(ns com.stepniowski.project-euler
+(ns com.stepniowski.euler-010
   (:use clojure.contrib.lazy-seqs))
 
-(defn euler-10 []
+(defn solution []
   (let [primes-below-2m (take-while #(< % 2000000) primes)]
     (reduce + primes-below-2m)))

@@ -19,7 +19,7 @@
 ;; We can see that 28 is the first triangle number to have over five divisors.
 ;;
 ;; What is the value of the first triangle number to have over five hundred divisors?
-(ns com.stepniowski.project-euler)
+(ns com.stepniowski.euler-012)
 
 (defn triangle-numbers
   "Returns the infinite sequence of triangle numbers."
@@ -57,5 +57,5 @@
   (let [prime-divisor-counts (count-runs (prime-factors n))]
     (reduce * (map inc prime-divisor-counts))))
 
-(defn euler-12 []
-   (first (drop-while #(<= (divisor-count %) 500) (triangle-numbers))))
+(defn solution []
+  (first (drop-while #(<= (divisor-count %) 500) (triangle-numbers))))
