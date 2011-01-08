@@ -23,6 +23,6 @@
   (* number (reduce + (map char-score word))))
 
 (defn solution []
-  (let [data (ds/slurp* "data/euler-22/names.txt")
+  (let [data (ds/slurp* "data/euler_022/names.txt")
 	names (map #(string/drop 1 (string/butlast 1 %)) (string/split #"," data))]
     (reduce + (map word-score (sort names) (iterate inc 1)))))
