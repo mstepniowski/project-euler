@@ -8,7 +8,7 @@
 ;; Doku puzzles, however, is to replace the blanks (or zeros) in a 9
 ;; by 9 grid in such that each row, column, and 3 by 3 box contains
 ;; each of the digits 1 to 9. Below is an example of a typical
-;; starting puzzle grid and its solution grid.
+;; starting puzzle grid.
 ;;
 ;; 0 0 3   0 2 0  6 0 0
 ;; 9 0 0   3 0 5  0 0 1
@@ -30,10 +30,10 @@
 ;; considered easy because it can be solved by straight forward direct
 ;; deduction.
 ;;
-;; The 6K text file, sudoku.txt (right click and 'Save Link/Target
-;; As...'), contains fifty different Su Doku puzzles ranging in
-;; difficulty, but all with unique solutions (the first puzzle in the
-;; file is the example above).
+;; The 6K text file, sudoku.txt (data/euler_096/sudoku.txt), contains
+;; fifty different Su Doku puzzles ranging in difficulty, but all with
+;; unique solutions (the first puzzle in the file is the example
+;; above).
 ;;
 ;; By solving all fifty puzzles find the sum of the 3-digit numbers
 ;; found in the top left corner of each solution grid; for example,
