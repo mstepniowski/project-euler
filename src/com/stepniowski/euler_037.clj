@@ -9,13 +9,13 @@
 ;; Find the sum of the only eleven primes that are both truncatable from left to right and right to left.
 ;;
 ;; NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes.
-(ns com.stepniowski.euler-037)
+(ns com.stepniowski.euler-037
+  (:use clojure.contrib.lazy-seqs))
 
 (defn prime? [n]
-  (if (< n 2)
-    false
-    (not-any? #(zero? (rem n %))
-	      (range 2 (min (inc (Math/sqrt n)) n)))))
+  (and (> n 1)
+       (let [k (Math/sqrt n)]
+	 (not-any? #(zero? (rem n %)) (take-while #(<= % k) primes)))))
 
 (defn right-truncatable-prime? [n]
   (every? prime? (take-while #(> % 0) (iterate #(quot % 10) n))))
@@ -37,5 +37,7 @@
 
 (defn solution []
   ;; We know that there are exactly 11 truncatable primes (except 2, 3, 5 and 7)
-  (take 11 (filter #(> % 10) (filter right-truncatable-prime?
-				     (left-truncatable-primes)))))
+  (let [truncatable-primes (take 11 (filter #(> % 10) (filter right-truncatable-prime?
+							      (left-truncatable-primes))))]
+    (reduce + truncatable-primes)))
+  
