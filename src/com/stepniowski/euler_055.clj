@@ -43,3 +43,6 @@
        (= rev n) false
        (>= it 50) true
        true (recur (+ rev n) (inc it))))))
+
+(defn solution []
+  (count (filter lychrel-number? (range 1 10000))))
